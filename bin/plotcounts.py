@@ -11,17 +11,11 @@ def main(args):
                      names=('word', 'word_frequency'))
     df['rank'] = df['word_frequency'].rank(ascending=False,
                                            method='max')
-    df['inverse_rank'] = 1 / df['rank']
-    #ax = df.plot.scatter(x='word_frequency',
-     #                    y='inverse_rank',
-      #                   figsize=[12, 6],
-       #                  grid=True,
-        #                 xlim=args.xlim)
     ax = df.plot.scatter(x='word_frequency',
-                     y='rank', loglog=True,
-                     figsize=[12, 6],
-                     grid=True,
-                     xlim=args.xlim)        
+                         y='rank', loglog=True,
+                         figsize=[12, 6],
+                         grid=True,
+                         xlim=args.xlim)
     ax.figure.savefig(args.outfile)
 
 
